@@ -16,5 +16,13 @@
   "bugs": {
     "url": "https://github.com/ashishdasnurkar/prj-mgmt-app/issues"
   },
-  "homepage": "https://github.com/ashishdasnurkar/prj-mgmt-app#readme"
+  "homepage": "https://github.com/ashishdasnurkar/prj-mgmt-app#readme",
+  "dependencies": {
+    "colors": "^1.4.0",
+    "cors": "^2.8.5",
+    "express": "^4.18.1",
+    "express-graphql": "^0.12.0",
+    "graphql": "^15.8.0",
+    "mongoose": "^6.3.6"
+  }
 }
