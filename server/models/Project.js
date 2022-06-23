@@ -4,11 +4,15 @@ const ProjectSchema = new mongoose.Schema({
   name: {
     type: String,
   },
-  email: {
+  description: {
     type: String,
   },
-  phone: {
+  status: {
     type: String,
+  },
+  clientId: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "Client",
   },
 });
 
