@@ -7,23 +7,26 @@ export default function AddClientModal() {
     <>
       <button
         type="button"
-        className="btn btn-primary"
+        className="btn btn-secondary"
         data-bs-toggle="modal"
-        data-bs-target="#exampleModal"
+        data-bs-target="#addClientModal"
       >
-        Add Client
+        <div className="d-flex align-items-center">
+          <FaUser className="icon"></FaUser>
+          <div>Add Client</div>
+        </div>
       </button>
 
       <div
         className="modal fade"
-        id="exampleModal"
-        aria-labelledby="exampleModalLabel"
+        id="addClientModal"
+        aria-labelledby="addClientModalLabel"
         aria-hidden="true"
       >
         <div className="modal-dialog">
           <div className="modal-content">
             <div className="modal-header">
-              <h5 className="modal-title" id="exampleModalLabel">
+              <h5 className="modal-title" id="addClientModalLabel">
                 Modal title
               </h5>
               <button
