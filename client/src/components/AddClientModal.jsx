@@ -4,7 +4,7 @@ import { useMutation } from "@apollo/client";
 
 export default function AddClientModal() {
   const [name, setName] = useState("");
-  const [email, seEmail] = useState("");
+  const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   return (
     <>
@@ -49,6 +49,16 @@ export default function AddClientModal() {
                     id="name"
                     value={name}
                     onChange={(e) => setName(e.target.value)}
+                  />
+                </div>
+                <div className="mb-3">
+                  <label className="form-label">Email</label>
+                  <input
+                    type="text"
+                    className="form-control"
+                    id="enail"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
                   />
                 </div>
               </form>
