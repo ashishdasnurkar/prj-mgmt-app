@@ -3,6 +3,9 @@ import { FaUser } from "react-icons/fa";
 import { useMutation } from "@apollo/client";
 
 export default function AddClientModal() {
+  const [name, setName] = useState("");
+  const [email, seEmail] = useState("");
+  const [phone, setPhone] = useState("");
   return (
     <>
       <button
@@ -27,7 +30,7 @@ export default function AddClientModal() {
           <div className="modal-content">
             <div className="modal-header">
               <h5 className="modal-title" id="addClientModalLabel">
-                Modal title
+                Add Client
               </h5>
               <button
                 type="button"
@@ -36,18 +39,19 @@ export default function AddClientModal() {
                 aria-label="Close"
               ></button>
             </div>
-            <div className="modal-body">...</div>
-            <div className="modal-footer">
-              <button
-                type="button"
-                className="btn btn-secondary"
-                data-bs-dismiss="modal"
-              >
-                Close
-              </button>
-              <button type="button" className="btn btn-primary">
-                Save changes
-              </button>
+            <div className="modal-body">
+              <form>
+                <div className="mb-3">
+                  <label className="form-label">Name</label>
+                  <input
+                    type="text"
+                    className="form-control"
+                    id="name"
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
+                  />
+                </div>
+              </form>
             </div>
           </div>
         </div>
