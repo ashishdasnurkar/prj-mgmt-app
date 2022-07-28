@@ -10,4 +10,4 @@ const GET_PROJECTS = gql`
   }
 `;
 
-export { GET_CLIENTS };
+export { GET_PROJECTS };
