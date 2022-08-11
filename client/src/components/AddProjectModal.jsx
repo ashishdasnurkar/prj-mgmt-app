@@ -3,8 +3,9 @@ import { FaList } from "react-icons/fa";
 import { useMutation, useQuery } from "@apollo/client";
 import { GET_PROJECTS } from "../queries/projectQueries";
 import { GET_CLIENTS } from "../queries/clientQueries";
+import { ADD_PROJECT } from "../mutations/projectMutations";
 
-export default function AddClientModal() {
+export default function AddProjectModal() {
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
   const [clientId, setClientId] = useState("");
@@ -12,20 +13,20 @@ export default function AddClientModal() {
 
   const { loading, error, data } = useQuery(GET_CLIENTS);
 
-  //   const [addClient] = useMutation(ADD_CLIENT, {
-  //     variables: { name, email, phone },
-  //     update(cache, { data: { addClient } }) {
-  //       const { clients } = cache.readQuery({
-  //         query: GET_CLIENTS,
-  //       });
-  //       cache.writeQuery({
-  //         query: GET_CLIENTS,
-  //         data: {
-  //           clients: [...clients, addClient],
-  //         },
-  //       });
-  //     },
-  //   });
+  const [addProject] = useMutation(ADD_PROJECT, {
+    variables: { name, description, status, clientId },
+    update(cache, { data: { addProject } }) {
+      const { projects } = cache.readQuery({
+        query: GET_PROJECTS,
+      });
+      cache.writeQuery({
+        query: GET_PROJECTS,
+        data: {
+          projects: [...projects, addProject],
+        },
+      });
+    },
+  });
 
   const onSubmit = (e) => {
     e.preventDefault();
@@ -33,10 +34,11 @@ export default function AddClientModal() {
     if (name === "" || description === "" || status === "") {
       return alert("Please fill in all the details!");
     }
-    // addClient(name, email, phone);
+    addProject(name, description, status, clientId);
     setName("");
     setDescription("");
     setStatus("new");
+    setClientId("");
   };
 
   if (loading) return null;
@@ -108,7 +110,7 @@ export default function AddClientModal() {
                       >
                         <option value="new">Not Started</option>
                         <option value="progress">In Progress</option>
-                        <option value="completed">Completed</option>
+                        <option value="done">Completed</option>
                       </select>
                     </div>
 
